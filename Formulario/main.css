@@ -1,0 +1,13 @@
+#formFormulario{
+    margin-left: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background-color: bisque;
+    border-radius: 10px;
+    padding: 20px;
+    margin-right: 70%;
+}
+
+h2{
+    margin-left: 35px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}

@@ -2,9 +2,12 @@
     require "formulario.php";
 ?>
 <html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="main.css">
+    </head>
     <body>
     <h2>Registro de Usuario</h2>
-        <form method="POST">
+        <form id="formFormulario" method="POST">
             <div>Nombre: <input type="text" name="nombre" value="<?=$nombre?>" /> </div>
             <?php 
                 verError($error, 'nombre');
