@@ -22,7 +22,12 @@
             <br><br>
             Observaciones: <input type="text" name="observaciones">
             <br><br>
-            Contraseña deseada: <input type="text" name="contrasena"> 
+            Contraseña deseada: <input type="text" name="contrasena" value="<?=$contrasena?>"> 
+            <?php 
+                //if(isset($error['contrasena']))
+                //    echo "<div style='color:red'> $error[contrasena]</div>";
+                verError($error, 'contrasena');
+            ?>
             <br><br>
             Acepto las condiciones: <input type="checkbox" name="condiciones">
             <p> <input type="submit" name="envio" value="Enviar" /></p>
