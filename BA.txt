@@ -1,0 +1,5 @@
+Descarga el xamp y arranca el apache. 
+
+Directorio: C\xampp\htdocs
+
+Es recomendable crear una carpeta nueva 
