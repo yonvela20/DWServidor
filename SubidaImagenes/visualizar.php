@@ -1,17 +1,18 @@
 <?php
 
-$ruta = "./imagenes"; // Indicar ruta
-$filehandle = opendir($ruta); // Abrir archivos
+$ruta = "./imagenes"; // Ruta de los archivos
+$archivos = opendir($ruta); // Abrir archivos
 
-while ($file = readdir($filehandle)) {
-
+while ($file = readdir($archivos)) {
+echo $file;
 ?>
-<img src="<?php echo $ruta.$file ?>"><br><br>    
-
+<html>
+<img src="<?php echo $ruta.'/'.$file ?>"><br><br>    
+</html>
 <?php
 } 
  
-closedir($filehandle); // Fin lectura archivos
+closedir($archivos); // Fin lectura archivos
 ?>
 
 
