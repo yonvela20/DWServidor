@@ -25,17 +25,13 @@ desplegable("cat",$categorias,$cat);
 </form>
 
 <?php
-if($cat) { // Si no se selecciona nada, no se muestran articulos
-	if($cat) {
-		echo "<h3>Categoría: ".$categorias[$cat].'</h3>';
-                $listarticulos=$articulos; // Todos
-        }
-        
-	foreach(getArticulos($cat,$filtro)  as  $id=>$art){
-
-		printf('<div class="art"><b>%s</b><br>%d €<br><br>
-			<a href="comprar.php?id=%s" class=boton>Añadir a carrito</a></div>',
-				$art['titulo'],$art['precio'],$id);
+if($cat) {
+	echo "<h3>Categoría: ".$categorias[$cat].'</h3>';
+			$listarticulos=$articulos; // Todos
 	}
+	
+foreach(getArticulos($cat,$filtro)  as  $id=>$art){
+	printf('<div class="art"><b>'.$art['titulo'].'</b><br>'.$art['precio'].'€<br>
+		<a href="comprar.php?id='.$id.'" class=boton>Añadir a carrito</a><br><br></div>');
 }
 ?>

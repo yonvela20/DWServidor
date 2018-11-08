@@ -1,5 +1,5 @@
 <?php 
-
+require "bbdd.php";
 //Funcion a la que le paso el parametros de la "bbdd" para hacer busquedas de 
 //forma mas comoda
 function params($param,$valdefecto=""){
@@ -15,13 +15,13 @@ function params($param,$valdefecto=""){
 }
 
 /**
- * Esta es una funcion que rellena un desplegable con el nombre de las categorias 
+ * Funcion para rellenar el desplegable 
  */
 function desplegable($name,$lista,$valorselecc){
 	echo "<select name='$name'>";
-	echo "<option value=''>Seleccione</option>";
+	echo "<option value=''>Todo</option>";
 	foreach($lista as $valor=>$descri){
-		$selected=$valor==$valorselecc ? "selected" :"";
+        $selected=$valor==$valorselecc ? "selected" :"";
 		echo "<option $selected value='$valor'>$descri</option>";
 	}
 	echo "</select>";
@@ -49,7 +49,8 @@ function getArticulos($cat='',$nombre=''){
 }
 
 /**
- * Funcion para cuando clicko en comprar para que me apareza un unico articulo 
+ * Funcion para cuando clicko en comprar para que me apareza 
+ * el unico articulo seleccionado
  */
 function getArticulo($id){
     global $articulos;
