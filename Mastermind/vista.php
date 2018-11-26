@@ -11,10 +11,10 @@
 <h1> Mastermind </h1>
 
 <form method="POST">
-    <input type="number" name="num1">
-    <input type="number" name="num2">
-    <input type="number" name="num3">
-    <input type="number" name="num4">
+    <input type="number" name="num[]">
+    <input type="number" name="num[]">
+    <input type="number" name="num[]">
+    <input type="number" name="num[]">
     <input type="submit" value="submit">
 </form>
     
