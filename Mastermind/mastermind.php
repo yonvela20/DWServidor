@@ -1,7 +1,4 @@
 <?php 
-//require "funciones.php";
-//El numero debe de ser privado pero por el momento lo dejo en publico así puedo verlo
-
 class Mastermind{
     private $random = [];
     
@@ -11,8 +8,6 @@ class Mastermind{
         'muertos' => 0, 
         'intentos' => 0
     ];
-
-    public $numero;
     
     //Genera un array de cuatro valores aleatorios del 1 al 6 sin repeticiones 
     public function inicioJuego(){
@@ -30,7 +25,7 @@ class Mastermind{
         return $this->random;
     }
 
-    //Funcion provisional para el desarrollo
+    //Funcion para mostrar el numero generado al perder 
     public function getRandom(){
         return $this->random;
     }
@@ -38,27 +33,22 @@ class Mastermind{
     //Funcion que comprueba si la jugada esta hecha y si no comprueba cuantos numeros has acertado
     public function validar($numero){
         if(in_array($numero, $this->jugadas['num'])){
-            //TODO: Aqui va la funcion de error que hay que hacer 
-            var_dump("No puedes repetir jugada");
+            $this->errorRepe();
         } else{
             $this->compruebaNumero($numero);
 
             if($this->jugadas['muertos'] >= 4){
                 //Aqui te debe redireccionar a una pagina de ganar, esto es provisional
-                var_dump("Has ganado");
+                header('Location: ganar.php');
             }
-            if($this->jugadas['muertos'] < 4){
-                return "";
+            if($this->jugadas['intentos'] == 5){
+                header('Location: perder.php');
             }
         }
     }
 
     //Funcion que comprueba los numeros introducidos
     public function compruebaNumero($numero){
-        //Estas dos lineas son de desarrollo se quitarán mas adelante
-        var_dump("Numeros a validar: ");
-        var_dump($numero);
-
         for($i = 0; $i < count($this->random); $i++){
 
             if(in_array($this->random[$i], $numero)){
@@ -72,6 +62,10 @@ class Mastermind{
         
         array_push($this->jugadas['num'], $numero);
         $this->jugadas['intentos']++;
+    }
+
+    public function errorRepe(){
+        echo "No puedes repetir la jugada";
     }
 
     //Gettters y setters a cero
@@ -93,11 +87,6 @@ class Mastermind{
 
     public function getIntentos(){
         return $this->jugadas['intentos'];
-    }
-
-    public function getUltimaJugada(){
-        $ultimaJugada = count($this->jugadas['num']) - 1;
-        return array_slice($this->jugadas['num'], $ultimaJugada);
     }
 }
 
